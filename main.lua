@@ -8,6 +8,8 @@ function _init()
 end
 
 function _update()
+    player:move()
+    blob:stepmovement(5)
     for p in all(particles) do
         p.x += p.xvel
         p.y += p.yvel
@@ -27,9 +29,7 @@ function _draw()
         circfill(p.x, p.y, p.size, p.col)
     end
     player:draw()
-    player:move()
     player:attack()
     blob:draw()
-    blob:move()
     blob:idle()
 end
