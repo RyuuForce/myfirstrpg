@@ -5,11 +5,17 @@ function _init()
         add(particles, newparticle())
     end
     blob = newenemy()
+    directionPickTimer = 0
 end
 
 function _update()
     player:move()
-    blob:stepmovement(5)
+    if directionPickTimer <= 0 then
+      direction = flr(rnd(5))
+      directionPickTimer = 10
+    end
+    directionPickTimer -= 1
+    blob:stepmovement(direction, 100)
     for p in all(particles) do
         p.x += p.xvel
         p.y += p.yvel
