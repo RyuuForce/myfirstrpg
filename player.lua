@@ -34,7 +34,8 @@ player.move = function(self)
   end
 end
 player.attack = function(self)
-  if btn(4) then
+  if btnp(4) then
+    sfx(2)
   	if self.spriteindex == 1 then
 	    spr(self.weapon[self.weaponSpriteIndex], (self.x - 8), self.y * grid_size)
 	  elseif self.spriteindex == 2 then
