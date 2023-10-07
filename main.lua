@@ -20,6 +20,11 @@ function _update()
       directionPickTimer = 30
       enemypause = false
     end
+    if btnp(4) then
+      player:updateWeapon() 
+      player.weaponAnimationTimer = 0
+    end
+    player.weaponAnimationTimer += 1
     directionPickTimer -= 1
     blob:stepmovement(direction)
     for p in all(particles) do
@@ -41,7 +46,7 @@ function _draw()
         circfill(p.x, p.y, p.size, p.col)
     end
     player:draw()
-    player:attack()
+    player:drawWeapon()
     blob:draw()
     blob:idle()
 end
